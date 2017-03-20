@@ -18,7 +18,14 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <b-card class="mb-2" variant="success">Simple Card</b-card>
-
+    <b-progress
+      :value="progress"
+      variant="success"
+      :precision="1"
+      show-progress
+      animated
+    >
+    </b-progress>
   </div>
 </template>
 
@@ -28,7 +35,15 @@ export default {
   data() {
     return {
       msg: 'Welcome to the hackathon dashboard.',
+      progress: Math.random() * 100,
+
     };
+  },
+  methods: {
+  //   clicked() {
+  //       this.progress = Math.round(Math.random()*10000)/100;
+  //       // console.log("Change progress to " + this.progress);
+  //  }
   },
 };
 </script>
