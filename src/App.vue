@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+<div id="app">
+  <div class="container">
+    <img src="./assets/logo.png"> 1 of 2
   </div>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
