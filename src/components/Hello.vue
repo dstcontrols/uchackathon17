@@ -18,6 +18,7 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <b-card class="mb-2" variant="success">Simple Card</b-card>
+    <b-btn class="mb-4" @click="clicked">Change progress</b-btn>
     <b-progress
       :value="progress"
       variant="success"
@@ -40,10 +41,10 @@ export default {
     };
   },
   methods: {
-  //   clicked() {
-  //       this.progress = Math.round(Math.random()*10000)/100;
-  //       // console.log("Change progress to " + this.progress);
-  //  }
+    clicked() {
+      this.progress = Math.round(Math.random() * 10000) / 100;
+      // console.log("Change progress to " + this.progress);
+    },
   },
 };
 </script>
