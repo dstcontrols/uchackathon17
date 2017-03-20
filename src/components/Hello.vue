@@ -17,9 +17,8 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-    <alert type="success/info/danger/warning">
-  alert!
-</alert>
+    <b-card class="mb-2" variant="success">Simple Card</b-card>
+
   </div>
 </template>
 
