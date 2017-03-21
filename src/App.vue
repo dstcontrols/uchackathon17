@@ -1,7 +1,11 @@
 <template>
 <div id="app">
   <div class="container">
-    <img src="./assets/logo.png"> 1 of 2
+    <div class="row">
+      <div class="col-xs-12">.col-xs-12</div>
+      <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+      <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+    </div>
   </div>
   <router-view></router-view>
 </div>
