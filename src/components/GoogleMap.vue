@@ -1,8 +1,9 @@
 <template>
-  <div></div>
+  <div>Hello World</div>
 </template>
 
 <script>
+
 export default {
   data () {
     return {}
