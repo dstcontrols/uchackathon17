@@ -1,14 +1,18 @@
+
+
 <template>
 <div class="hello">
-  <div class="row">
+  <!-- <child :text="message"></child> -->
+
+  <!-- <div class="row">
     1 of 2
     <div class="col">
     </div>
     <div class="col-8">
       2 of 2 (wider)
     </div>
-  </div>
-  <div class="row">
+  </div> -->
+  <!-- <div class="row">
     <div class="col">
       1 of 3
     </div>
@@ -18,24 +22,11 @@
     <div class="col">
       3 of 3
     </div>
-  </div>
+  </div> -->
   <h1>{{ msg }}</h1>
-  <h2>Essential Links</h2>
-  <ul>
-    <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-    <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-    <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-    <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    <br>
-    <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-  </ul>
-  <h2>Ecosystem</h2>
-  <ul>
-    <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-    <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-    <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-    <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-  </ul>
+
+  <links></links>
+
   <b-btn class="mb-4" @click="clicked">Change progress</b-btn>
   <b-progress :value="progress" variant="success" :precision="1" show-progress animated>
   </b-progress>
@@ -51,34 +42,32 @@
     </b-form-fieldset>
   </div>
 
+  <dashtable v-bind:items="parentItems" :fields="fields" :current-page="currentPage" :per-page="perPage" :filter="filter"></dashtable>
+
   <!-- Main table element -->
-  <b-table striped hover :items="items" :fields="fields" :current-page="currentPage" :per-page="perPage" :filter="filter">
-    <template slot="name" scope="item">
-      {{item.value.first}} {{item.value.last}}
-</template>
-    <template slot="isActive" scope="item">
- {{item.value?'Yes :)':'No :('}}
-</template>
-    <template slot="actions" scope="item">
-<b-btn size="sm" @click="details(item.item)">
-  Details</b-btn>
-</template>
-  </b-table>
+
 
   <div class="justify-content-center row my-1">
-    <b-pagination size="md" :total-rows="this.items.length" :per-page="perPage" v-model="currentPage" />
+    <b-pagination size="md" :total-rows="this.parentItems.length" :per-page="perPage" v-model="currentPage" />
   </div>
+
   </div>
 </template>
 
 <script>
+import links from '../components/links';
+import dashtable from '../components/dashtable';
+
 export default {
-  name: 'barrickDash',
+  name: 'dashboard',
+  components: {
+    links, dashtable
+  },
   data() {
     return {
       msg: 'Welcome to the hackathon dashboard for Barrick.',
       progress: Math.random() * 100,
-      items: [{
+      parentItems: [{
         isActive: true,
         age: 40,
         name: {

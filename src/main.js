@@ -9,6 +9,14 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App';
 import router from './router';
 
+Vue.component('child', {
+  // declare the props
+  props: ['message'],
+  // just like data, the prop can be used inside templates
+  // and is also made available in the vm as this.message
+  template: '<span>{{ message }}</span>'
+});
+
 
 Vue.config.productionTip = false;
 
