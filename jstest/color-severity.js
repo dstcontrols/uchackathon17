@@ -55,4 +55,18 @@ function EvaluateBoostPressure(P_Boost) {
     return hexColorOut;
 }
 
-// Takes in Delta Brake Temperature from the front or rear from RTF-LTF BRKTEMP
+// Takes in Delta Brake Temperature from the front or rear from RTF-LTF BRKTEMP or RTR-LTR BRKTEMP
+// Outputs a hex color depending on severity
+function EvaluateTireDelta(deltaT) {
+    var hexColorOut;
+    var absDeltaT = Math.abs(deltaT);
+
+    if (absDeltaT > 2) {
+        hexColorOut = hexColorWarning;
+    }
+    else {
+        hexColorOut = hexColorSafe;
+    }
+
+    return hexColorOut;
+}
