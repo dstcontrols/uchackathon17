@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Latitude Longitude Parser Test</title>
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.11.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+        <script src="lat-long-data.js"></script>
+        <script src="parse-lat-long.js"></script>
+        <script type="text/javascript">
+
+            var apiResults;
+            var data = parseLatLong(apiResults);
+
+            for (var i_truck = 0; i_truck < data.length; i_truck++) {
+                var dataGridTable = document.getElementById("DataGrid");
+                var row = dataGridTable.insertRow(i_hour+1);
+                var truckcell = row.insertCell(0);
+                var latcell = row.insertCell(1);
+                var longcell = row.insertCell(2);
+                truckcell.innerHTML = data[i_truck].numTruck;
+                latcell.innerHTML = data[i_truck].latitude;
+                longcell.innerHTML = data[i_truck].longitude;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="data-table">
+            <h3>Table</h3>
+            <table id="DataGrid">
+                <thead>
+                    <tr>
+                        <th>Truck</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
