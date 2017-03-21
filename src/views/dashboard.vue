@@ -31,7 +31,7 @@
     <b-pagination size="md" :total-rows="this.parentItems.length" :per-page="perPage" v-model="currentPage" />
   </div>
 
-  </div>
+</div>
 </template>
 
 <script>
@@ -41,7 +41,8 @@ import dashtable from '../components/dashtable';
 export default {
   name: 'dashboard',
   components: {
-    links, dashtable
+    links,
+    dashtable,
   },
   data() {
     return {
