@@ -17,12 +17,20 @@
                 var latcell = row.insertCell(1);
                 var longcell = row.insertCell(2);
                 var deltaTcell = row.insertCell(3);
+                var oilcell = row.insertCell(4);
+                var boostcell = row.insertCell(5);
                 var deltaTdummy = -40 + i_truck * 3;
+                var oilDummy = 206 + i_truck *21;
+                var boostDummy = i_truck;
                 truckcell.innerHTML = data[i_truck].numTruck;
                 latcell.innerHTML = data[i_truck].latitude;
                 longcell.innerHTML = data[i_truck].longitude;
                 deltaTcell.innerHTML = deltaTdummy;
+                boostcell.innerHTML = boostDummy;
+                oilcell.innerHTML = oilDummy*0.145038;
                 deltaTcell.style.backgroundColor = EvaluateDeltaExhaust(deltaTdummy);
+                oilcell.style.backgroundColor = EvaluateEngineOilPressure(oilDummy);
+                boostcell.style.backgroundColor = EvaluateBoostPressure(boostDummy);
             }
         };
         </script>
@@ -37,6 +45,8 @@
                         <th>Latitude</th>
                         <th>Longitude</th>
                         <th>Dummy deltaT</th>
+                        <th>Dummy Oil Pressure</th>
+                        <th>Boost Oil Pressure</th>
                     </tr>
                 </thead>
                 <tbody>
