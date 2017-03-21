@@ -1,31 +1,22 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
+// === DEFAULT / CUSTOM STYLE ===
+// WARNING! always comment out ONE of the two require() calls below.
+// 1. use next line to activate CUSTOM STYLE (./src/themes)
+// require(`./themes/app.${__THEME}.styl`)
+// 2. or, use next line to activate DEFAULT QUASAR STYLE
+require(`quasar/dist/quasar.${__THEME}.css`)
+// ==============================
 
-import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Vue from 'vue'
+import Quasar from 'quasar'
+import router from './router'
 
-import App from './App';
-import router from './router';
+Vue.use(Quasar) // Install Quasar Framework
 
-Vue.component('child', {
-  // declare the props
-  props: ['message'],
-  // just like data, the prop can be used inside templates
-  // and is also made available in the vm as this.message
-  template: '<span>{{ message }}</span>'
-});
-
-
-Vue.config.productionTip = false;
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App, BootstrapVue },
-});
-
-Vue.use(BootstrapVue);
+Quasar.start(() => {
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#q-app',
+    router,
+    render: h => h(require('./App'))
+  })
+})
